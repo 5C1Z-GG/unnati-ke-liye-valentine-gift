@@ -19,7 +19,6 @@ body {
   position: relative;
 }
 
-/* Hearts floating in background */
 body::before, body::after {
   content: "❤️";
   position: fixed;
@@ -40,7 +39,6 @@ body::after {
   100% { transform: translateY(0) rotate(0deg);}
 }
 
-/* Cover Page */
 .cover-page {
   position: fixed;
   top: 0;
@@ -109,7 +107,6 @@ body::after {
   100% { transform: translateY(0) rotate(0deg);}
 }
 
-/* Header */
 header {
   text-align: center;
   padding: 30px 20px 10px;
@@ -126,7 +123,6 @@ header h1 {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Songs container */
 .songs {
   max-width: 500px;
   margin: 20px auto;
@@ -137,7 +133,6 @@ header h1 {
   gap: 15px;
 }
 
-/* Song cards */
 .song {
   background: linear-gradient(135deg, #fff0f5, #ffe6f0);
   border-radius: 20px;
@@ -170,7 +165,6 @@ header h1 {
   box-shadow: 0 15px 30px rgba(255, 77, 109, 0.4);
 }
 
-/* Song text */
 .song-title {
   font-weight: 500;
   color: #ff3366;
@@ -183,7 +177,6 @@ header h1 {
   margin-top: 4px;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 25px;
@@ -196,14 +189,12 @@ footer {
   position: relative;
 }
 
-/* Currently playing highlight */
 .song.playing {
   background: linear-gradient(135deg, #ffb3c6, #ff4d6d);
   box-shadow: 0 15px 35px rgba(255, 77, 109, 0.5);
   color: white;
 }
-
-/* PROGRESS BAR */
+  
 .progress-container {
   max-width: 500px;
   margin: 10px auto 30px;
@@ -227,16 +218,15 @@ footer {
 
 <body>
 
-<!-- COVER PAGE -->
 <div class="cover-page" id="coverPage">
   <div class="cover-content">
-    <h1>🎵 Songs That Remind Me of You 🎵</h1>
+    <h1>🎵Songs That Remind Me of You🎵</h1>
     <p>Btw All Love Songs Remind Me Of You But Here, I've Added Only 4 💖</p>
     <button id="enterBtn">Wanna See 👀</button>
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
+
 <header>
   <h1>Songs That Remind Me of You 💖</h1>
 </header>
@@ -263,16 +253,14 @@ footer {
   </div>
 </div>
 
-<!-- PROGRESS BAR -->
 <div class="progress-container" id="progress-container">
   <div class="progress" id="progress"></div>
 </div>
 
 <footer>
-  Every song reminds me of you 💘
+  Every Love song reminds me of you 💘
 </footer>
 
-<!-- AUDIO PLAYER -->
 <audio id="player"></audio>
 
 <script>
@@ -281,12 +269,10 @@ const songs = document.querySelectorAll(".song");
 const progressContainer = document.getElementById("progress-container");
 const progress = document.getElementById("progress");
 
-// Remove "playing" class from all songs
 function resetPlaying() {
   songs.forEach(song => song.classList.remove("playing"));
 }
 
-// Play clicked song
 songs.forEach(song => {
   song.addEventListener("click", () => {
     const audioSrc = song.dataset.song;
@@ -303,7 +289,6 @@ songs.forEach(song => {
   });
 });
 
-// Update progress bar
 player.addEventListener("timeupdate", () => {
   if (player.duration) {
     const percent = (player.currentTime / player.duration) * 100;
@@ -311,7 +296,6 @@ player.addEventListener("timeupdate", () => {
   }
 });
 
-// Click on progress bar to seek
 progressContainer.addEventListener("click", (e) => {
   const width = progressContainer.clientWidth;
   const clickX = e.offsetX;
@@ -321,13 +305,11 @@ progressContainer.addEventListener("click", (e) => {
   }
 });
 
-// When song ends, remove highlight
 player.addEventListener("ended", () => {
   resetPlaying();
   progress.style.width = "0%";
 });
 
-// COVER PAGE JS
 const coverPage = document.getElementById("coverPage");
 const enterBtn = document.getElementById("enterBtn");
 
@@ -342,3 +324,4 @@ enterBtn.addEventListener("click", () => {
 
 </body>
 </html>
+
