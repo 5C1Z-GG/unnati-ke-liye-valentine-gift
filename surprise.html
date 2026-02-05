@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>One Question</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #0f0f0f, #2a2a2a);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        font-size: 18px;
+        opacity: 0.3;
+        animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh); }
+        to { transform: translateY(-10vh); }
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        padding: 60px;
+        width: 440px;
+        text-align: center;
+        border-radius: 16px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        animation: fadeIn 1.5s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+        margin-bottom: 35px;
+        line-height: 1.4;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        text-align: center;
+        background: rgba(255,255,255,0.9);
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 14px 34px;
+        font-size: 16px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff4d5a, #e63946);
+        color: white;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 0 20px rgba(230,57,70,0.6);
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(230,57,70,0.9);
+    }
+
+    .error {
+        margin-top: 15px;
+        color: #ff8c8c;
+        display: none;
+        animation: pop 0.4s ease;
+        font-size: 14px;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .shake {
+        animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-6px); }
+        50% { transform: translateX(6px); }
+        75% { transform: translateX(-6px); }
+        100% { transform: translateX(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- floating hearts -->
+<span class="heart" style="left:10%; animation-delay:0s;">❤️</span>
+<span class="heart" style="left:30%; animation-delay:2s;">💖</span>
+<span class="heart" style="left:50%; animation-delay:4s;">💕</span>
+<span class="heart" style="left:70%; animation-delay:1s;">❤️</span>
+<span class="heart" style="left:90%; animation-delay:3s;">💖</span>
+
+<div class="card" id="card">
+    <h1>
+        Access chahiye toh pehle yeh batao <br>
+        <span style="font-family:'Quicksand'; font-size:20px;">
+            Q. Who loves you the most? 👽
+        </span>
+    </h1>
+
+    <input type="text" id="nameInput" placeholder="Type the name">
+
+    <button onclick="checkName()">Submit</button>
+
+    <div class="error" id="error">Omggg 😭 it’s literally THAT easy. Try again yr!</div>
+</div>
+
+<script>
+    const correctName = "Aditya";
+
+    function checkName() {
+        const input = document.getElementById("nameInput").value.trim();
+        const error = document.getElementById("error");
+        const card = document.getElementById("card");
+
+        if (input.toLowerCase() === correctName.toLowerCase()) {
+            window.location.href = "secret.html";
+        } else {
+            error.style.display = "block";
+            card.classList.add("shake");
+            setTimeout(() => card.classList.remove("shake"), 400);
+        }
+    }
+</script>
+
+</body>
+</html>

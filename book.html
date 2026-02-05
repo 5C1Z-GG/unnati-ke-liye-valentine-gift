@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe6ec, #ffccd9);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(90deg, #ff99aa, #ff4d6d);
+  color: #fff;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Book container */
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Page rows */
+.page-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual page */
+.page {
+  flex: 1;
+  min-width: 250px;
+  background: #fff0f5;
+  border-radius: 25px;
+  padding: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 35px rgba(0,0,0,0.2);
+}
+
+.page img {
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid #ff4d6d;
+}
+
+.caption {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #ff3366;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 25px 20px;
+  color: #ff1a4d;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: #ffe6f0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+}
+
+/* Button */
+.footer button {
+  background: #ff4d6d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.footer button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255,77,109,0.5);
+}
+
+/* Hearts in background (optional fun effect) */
+body::before {
+  content: "❤️";
+  position: fixed;
+  font-size: 2rem;
+  top: 20%;
+  left: 10%;
+  color: rgba(255,77,109,0.1);
+  animation: floatHearts 6s infinite linear;
+}
+
+@keyframes floatHearts {
+  0% {transform: translateY(0);}
+  50% {transform: translateY(-20px);}
+  100% {transform: translateY(0);}
+}
+
+/* Responsive */
+@media(max-width: 600px){
+  .page-row {
+    flex-direction: column;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1> A Small Scrapbook For My Love 💖</h1>
+</header>
+
+<div class="book">
+
+  <!-- ROW 1 -->
+  <div class="page-row">
+    <div class="page">
+      <img src="THE-OG.jpg" alt="Memory 1">
+      <div class="caption">
+        The picture that makes <br>
+        me feel nostalgic 🕰️ <br>
+        It brings tears to my eyes 🥹<br>
+        I really don't know how should <br>
+        I text what I feel. Whenever I <br>
+        take a look at this picture, It <br>
+        feels like I'm reliving that moment.<br>
+        This picture motivates me<br>
+        to never give up on US<br>
+        Though I won't even on<br>
+        the hardest times<br>
+        Besides that, this picture<br>
+        makes me soo happy. 🫶
+      </div>
+    </div>
+
+    <div class="page">
+      <img src="winter2024.jpg" alt="Memory 2">
+      <div class="caption">
+        Omgg Winters 2024<br>
+        You look like a cutie ngl 😭
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="page-row">
+    <div class="page">
+      <img src="flow.jpg" alt="Memory 3">
+      <div class="caption">
+        "Don't copy my flow" <br>
+         No baby I won't copy <br>
+         your flow, And I can <br>
+         never, Cause you're <br>
+         THE BEST! Noone can <br>
+         be like YOU 🥹
+      </div>
+    </div>
+
+    <div class="page">
+      <img src="her.jpg" alt="Memory 4">
+      <div class="caption">
+       I still remember the story<br>
+       behind this picture. You took<br>
+       this picture on the day I hurt <br>
+       you. This is not just a picture<br>
+       for me, It makes me feel loved <br>
+       You know why? Because I hurt you <br>
+       that day, But even after that, You <br>
+       still chose to be with me. Chose to<br>
+       love ME. It really makes me emotional.<br>
+       I really thank you for that 🥹💟 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>Not the end, there's something more!</span>
+  <button onclick="window.location.href='songs.html'">One Last Thing 💌</button>
+</div>
+
+</body>
+</html>
