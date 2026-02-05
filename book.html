@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* Basic Reset */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,7 +21,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
 header {
   text-align: center;
   padding: 30px 20px;
@@ -38,7 +37,6 @@ header h1 {
   text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Book container */
 .book {
   display: flex;
   flex-direction: column;
@@ -48,14 +46,12 @@ header h1 {
   padding: 0 15px;
 }
 
-/* Page rows */
 .page-row {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-/* Individual page */
 .page {
   flex: 1;
   min-width: 250px;
@@ -88,7 +84,6 @@ header h1 {
   line-height: 1.4;
 }
 
-/* Footer */
 .footer {
   display: flex;
   justify-content: center;
@@ -105,7 +100,6 @@ header h1 {
   box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
 }
 
-/* Button */
 .footer button {
   background: #ff4d6d;
   color: #fff;
@@ -124,7 +118,6 @@ header h1 {
   box-shadow: 0 10px 20px rgba(255,77,109,0.5);
 }
 
-/* Hearts in background (optional fun effect) */
 body::before {
   content: "❤️";
   position: fixed;
@@ -141,7 +134,6 @@ body::before {
   100% {transform: translateY(0);}
 }
 
-/* Responsive */
 @media(max-width: 600px){
   .page-row {
     flex-direction: column;
@@ -162,7 +154,6 @@ body::before {
 
 <div class="book">
 
-  <!-- ROW 1 -->
   <div class="page-row">
     <div class="page">
       <img src="THE-OG.jpg" alt="Memory 1">
@@ -192,7 +183,6 @@ body::before {
     </div>
   </div>
 
-  <!-- ROW 2 -->
   <div class="page-row">
     <div class="page">
       <img src="flow.jpg" alt="Memory 3">
@@ -232,3 +222,4 @@ body::before {
 
 </body>
 </html>
+
