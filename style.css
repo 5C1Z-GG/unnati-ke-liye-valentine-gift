@@ -23,6 +23,7 @@ body {
     max-width: 500px;
     margin: 20px; 
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease;
 }
 
 .container .tenor-gif-embed {
@@ -190,4 +191,5 @@ h2 {
     font-size: 0.95rem;
     color: #888;
 }
+
 
