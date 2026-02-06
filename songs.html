@@ -2,326 +2,244 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Songs That Remind Me of You 💖</title>
+<title>Songs That Remind Me of You ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+* { box-sizing: border-box; }
+
+/* ================= BODY ================= */
 body {
   margin: 0;
-  background: linear-gradient(135deg, #ffe6ec, #ffd6e0);
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-}
-
-body::before, body::after {
-  content: "❤️";
-  position: fixed;
-  font-size: 3rem;
-  color: rgba(255,77,109,0.1);
-  animation: floatHearts 8s infinite linear;
-}
-body::after {
-  left: 80%;
-  top: 40%;
-  font-size: 4rem;
-  animation-duration: 10s;
-}
-
-@keyframes floatHearts {
-  0% { transform: translateY(0) rotate(0deg);}
-  50% { transform: translateY(-30px) rotate(15deg);}
-  100% { transform: translateY(0) rotate(0deg);}
-}
-
-.cover-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #ffccd9, #ff99aa);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  flex-direction: column;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-  animation: fadeIn 1s ease forwards;
-}
-
-.cover-page::before {
-  content: "💘";
-  position: absolute;
-  font-size: 12rem;
-  opacity: 0.05;
-  animation: floatHeartsCover 10s infinite linear;
-}
-
-.cover-content h1 {
-  font-family: 'Pacifico', cursive;
-  font-size: 4rem;
-  margin-bottom: 20px;
-  text-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-}
-
-.cover-content p {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-  font-weight: 500;
-}
-
-#enterBtn {
-  padding: 18px 40px;
-  font-size: 1.4rem;
-  font-family: 'Poppins', sans-serif;
-  background: #ff3366;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(255, 77, 109, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#enterBtn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 35px rgba(255, 77, 109, 0.7);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes floatHeartsCover {
-  0% { transform: translateY(0) rotate(0deg);}
-  50% { transform: translateY(-30px) rotate(15deg);}
-  100% { transform: translateY(0) rotate(0deg);}
-}
-
-header {
-  text-align: center;
-  padding: 30px 20px 10px;
-  background: linear-gradient(90deg, #ff99aa, #ff4d6d);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  font-family: 'Pacifico', cursive;
+  padding: 40px 20px;
+  font-family: 'Cormorant Garamond', serif;
   color: #fff;
-  font-size: 2.8rem;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  text-align: center;
+  overflow-x: hidden;
+
+  /* VERY STRONG BASE */
+  background:
+    radial-gradient(circle at 10% 10%, #ffb3c7 0%, transparent 35%),
+    radial-gradient(circle at 90% 20%, #ff7eb3 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, #ff5f9e 0%, transparent 45%),
+    linear-gradient(120deg, #ff4f8b, #ff7eb3, #ffb3c7);
 }
 
-.songs {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* ================= BACKGROUND LAYERS ================= */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ===== GIANT WAVES ===== */
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background:
+    repeating-radial-gradient(
+      circle at 30% 30%,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.06) 2px,
+      transparent 6px,
+      transparent 14px
+    );
+  animation: rotate 120s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== PARTICLE FIELD ===== */
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
+  background-size: 40px 40px, 80px 80px;
+  opacity: 0.35;
+}
+
+/* ===== VIGNETTE ===== */
+.vignette {
+  position: fixed;
+  inset: 0;
+  box-shadow: inset 0 0 300px rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+/* ================= TEXT ================= */
+h1 {
+  font-size: 3.2em;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 50px;
+  opacity: 0.95;
+}
+
+/* ================= PLAYLIST ================= */
+.playlist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: auto;
 }
 
 .song {
-  background: linear-gradient(135deg, #fff0f5, #ffe6f0);
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.2);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.song::after {
-  content: "💖";
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: 2rem;
-  opacity: 0.2;
-  animation: floatHeartSmall 4s infinite ease-in-out alternate;
-}
-
-@keyframes floatHeartSmall {
-  0% { transform: translateY(0) rotate(0deg); opacity:0.2;}
-  50% { transform: translateY(-8px) rotate(10deg); opacity:0.3;}
-  100% { transform: translateY(0) rotate(0deg); opacity:0.2;}
+  background: rgba(255,255,255,0.2);
+  border-radius: 28px;
+  padding: 20px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease;
 }
 
 .song:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(255, 77, 109, 0.4);
+  transform: translateY(-10px);
 }
 
-.song-title {
-  font-weight: 500;
-  color: #ff3366;
-  font-size: 1.1rem;
+.cover {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
 }
 
-.song-artist {
-  font-size: 0.9rem;
-  color: #ff6699;
-  margin-top: 4px;
+.song h2 {
+  margin: 8px 0 4px;
+  font-size: 1.5em;
 }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #ff1a4d;
-  font-size: 1.2rem;
-  background: #ffe6f0;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  box-shadow: 0 -8px 20px rgba(255,77,109,0.1);
-  position: relative;
+.song span {
+  opacity: 0.9;
 }
 
-.song.playing {
-  background: linear-gradient(135deg, #ffb3c6, #ff4d6d);
-  box-shadow: 0 15px 35px rgba(255, 77, 109, 0.5);
+/* ================= CONTROLS ================= */
+.controls { margin-top: 18px; }
+
+.play-btn {
+  background: #ff4f8b;
+  border: none;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  font-size: 22px;
   color: white;
-}
-  
-.progress-container {
-  max-width: 500px;
-  margin: 10px auto 30px;
-  height: 8px;
-  background: rgba(255, 77, 109, 0.2);
-  border-radius: 5px;
   cursor: pointer;
-  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 
-.progress {
-  height: 100%;
-  width: 0%;
-  background: #ff3366;
-  border-radius: 5px;
-  transition: width 0.1s linear;
+.timeline { margin-top: 15px; }
+
+.timeline input {
+  width: 100%;
 }
 
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 70px;
+  opacity: 0.9;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 700px) {
+  .playlist { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 
 <body>
 
-<div class="cover-page" id="coverPage">
-  <div class="cover-content">
-    <h1>🎵Songs That Remind Me of You🎵</h1>
-    <p>Btw All Love Songs Remind Me Of You But Here, I've Added Only 4 💖</p>
-    <button id="enterBtn">Wanna See 👀</button>
+<!-- BACKGROUND -->
+<div class="bg"></div>
+<div class="vignette"></div>
+
+<h1>❤️ Songs That Remind Me of You ❤️</h1>
+<p>Every second sounds like you.</p>
+
+<div class="playlist">
+
+  <div class="song">
+    <img class="cover" src="diewithasmile.jpg">
+    <h2>Die With A Smile</h2>
+    <span>Bruno Mars, Lady Gaga</span>
+    <audio src="song2.mp3"></audio>
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <div class="timeline">
+        <input type="range" value="0">
+      </div>
+    </div>
   </div>
+
+  <div class="song">
+    <img class="cover" src="khwaab.jpg">
+    <h2>Khwaab Ho Tum Ya Koi Haqiqat</h2>
+    <span>Kishore Kumar</span>
+    <audio src="Khwab Ho Tum Ya Koi Haqeeqat.mp3"></audio>
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <div class="timeline">
+        <input type="range" value="0">
+      </div>
+    </div>
+  </div>
+
+  <div class="song">
+    <img class="cover" src="anand.jpg">
+    <h2>Maine Tere Liye</h2>
+    <span>Ed Sheeran</span>
+    <audio src="song4.mp3"></audio>
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <div class="timeline">
+        <input type="range" value="0">
+      </div>
+    </div>
+  </div>
+
+  <div class="song">
+    <img class="cover" src="chaand.jpg">
+    <h2>Chaand Si Mehbooba Ho Meri</h2>
+    <span>Mukesh</span>
+    <audio src="song3.mp3"></audio>
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <div class="timeline">
+        <input type="range" value="0">
+      </div>
+    </div>
+  </div>
+
 </div>
 
-
-<header>
-  <h1>Songs That Remind Me of You 💖</h1>
-</header>
-
-<div class="songs">
-  <div class="song" data-song="Khwab Ho Tum Ya Koi Haqeeqat.mp3">
-    <div class="song-title">Khwaab Ho Tum Ya Koi Hakikat</div>
-    <div class="song-artist">Kishore Kumar</div>
-  </div>
-
-  <div class="song" data-song="song2.mp3">
-    <div class="song-title">Die With A Smile</div>
-    <div class="song-artist">Bruno Mars</div>
-  </div>
-
-  <div class="song" data-song="song3.mp3">
-    <div class="song-title">Yeh Raaten Yeh Mausam</div>
-    <div class="song-artist">Kishore Kumar</div>
-  </div>
-
-  <div class="song" data-song="song4.mp3">
-    <div class="song-title">Maine Tere Liye</div>
-    <div class="song-artist">Mukesh</div>
-  </div>
-</div>
-
-<div class="progress-container" id="progress-container">
-  <div class="progress" id="progress"></div>
-</div>
-
-<footer>
-  Every Love song reminds me of you 💘
-</footer>
-
-<audio id="player"></audio>
+<footer>Your voice is my favorite sound 💘</footer>
 
 <script>
-const player = document.getElementById("player");
-const songs = document.querySelectorAll(".song");
-const progressContainer = document.getElementById("progress-container");
-const progress = document.getElementById("progress");
+const players = document.querySelectorAll('.song');
 
-function resetPlaying() {
-  songs.forEach(song => song.classList.remove("playing"));
-}
+players.forEach(player => {
+  const audio = player.querySelector('audio');
+  const btn = player.querySelector('.play-btn');
 
-songs.forEach(song => {
-  song.addEventListener("click", () => {
-    const audioSrc = song.dataset.song;
-    if (player.src.includes(audioSrc) && !player.paused) {
-      player.pause();
-      resetPlaying();
-    } else {
-      resetPlaying();
-      player.src = audioSrc;
-      player.currentTime = 0;
-      player.play();
-      song.classList.add("playing");
-    }
-  });
-});
-
-player.addEventListener("timeupdate", () => {
-  if (player.duration) {
-    const percent = (player.currentTime / player.duration) * 100;
-    progress.style.width = percent + "%";
-  }
-});
-
-progressContainer.addEventListener("click", (e) => {
-  const width = progressContainer.clientWidth;
-  const clickX = e.offsetX;
-  const duration = player.duration;
-  if (duration) {
-    player.currentTime = (clickX / width) * duration;
-  }
-});
-
-player.addEventListener("ended", () => {
-  resetPlaying();
-  progress.style.width = "0%";
-});
-
-const coverPage = document.getElementById("coverPage");
-const enterBtn = document.getElementById("enterBtn");
-
-enterBtn.addEventListener("click", () => {
-  coverPage.style.transition = "opacity 1s ease";
-  coverPage.style.opacity = 0;
-  setTimeout(() => {
-    coverPage.style.display = "none";
-  }, 1000);
+  btn.onclick = () => {
+    players.forEach(p => {
+      if (p !== player) p.querySelector('audio').pause();
+    });
+    audio.paused ? audio.play() : audio.pause();
+  };
 });
 </script>
 
 </body>
 </html>
-
