@@ -9,7 +9,6 @@
 <style>
 * { box-sizing: border-box; }
 
-/* ================= BODY ================= */
 body {
   margin: 0;
   padding: 40px 20px;
@@ -18,7 +17,6 @@ body {
   text-align: center;
   overflow-x: hidden;
 
-  /* VERY STRONG BASE */
   background:
     radial-gradient(circle at 10% 10%, #ffb3c7 0%, transparent 35%),
     radial-gradient(circle at 90% 20%, #ff7eb3 0%, transparent 40%),
@@ -26,7 +24,6 @@ body {
     linear-gradient(120deg, #ff4f8b, #ff7eb3, #ffb3c7);
 }
 
-/* ================= BACKGROUND LAYERS ================= */
 .bg {
   position: fixed;
   inset: 0;
@@ -34,7 +31,6 @@ body {
   pointer-events: none;
 }
 
-/* ===== GIANT WAVES ===== */
 .bg::before {
   content: "";
   position: absolute;
@@ -54,7 +50,6 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* ===== PARTICLE FIELD ===== */
 .bg::after {
   content: "";
   position: absolute;
@@ -66,15 +61,13 @@ body {
   opacity: 0.35;
 }
 
-/* ===== VIGNETTE ===== */
 .vignette {
   position: fixed;
   inset: 0;
   box-shadow: inset 0 0 300px rgba(0,0,0,0.55);
   z-index: -1;
 }
-
-/* ================= TEXT ================= */
+  
 h1 {
   font-size: 3.2em;
   margin-bottom: 10px;
@@ -86,7 +79,6 @@ p {
   opacity: 0.95;
 }
 
-/* ================= PLAYLIST ================= */
 .playlist {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -124,7 +116,6 @@ p {
   opacity: 0.9;
 }
 
-/* ================= CONTROLS ================= */
 .controls { margin-top: 18px; }
 
 .play-btn {
@@ -145,13 +136,11 @@ p {
   width: 100%;
 }
 
-/* ================= FOOTER ================= */
 footer {
   margin-top: 70px;
   opacity: 0.9;
 }
 
-/* ================= MOBILE ================= */
 @media (max-width: 700px) {
   .playlist { grid-template-columns: 1fr; }
 }
@@ -160,12 +149,10 @@ footer {
 
 <body>
 
-<!-- BACKGROUND -->
 <div class="bg"></div>
 <div class="vignette"></div>
 
 <h1>❤️ Songs That Remind Me of You ❤️</h1>
-<p>Every second sounds like you.</p>
 
 <div class="playlist">
 
@@ -198,7 +185,7 @@ footer {
   <div class="song">
     <img class="cover" src="anand.jpg">
     <h2>Maine Tere Liye</h2>
-    <span>Ed Sheeran</span>
+    <span>Mukesh</span>
     <audio src="song4.mp3"></audio>
     <div class="controls">
       <button class="play-btn">▶</button>
@@ -243,3 +230,4 @@ players.forEach(player => {
 
 </body>
 </html>
+
