@@ -15,68 +15,11 @@ body {
   font-family: 'Cormorant Garamond', serif;
   color: #fff;
   text-align: center;
-  overflow-x: hidden;
-
   background:
     radial-gradient(circle at 10% 10%, #ffb3c7 0%, transparent 35%),
     radial-gradient(circle at 90% 20%, #ff7eb3 0%, transparent 40%),
     radial-gradient(circle at 50% 90%, #ff5f9e 0%, transparent 45%),
     linear-gradient(120deg, #ff4f8b, #ff7eb3, #ffb3c7);
-}
-
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.bg::before {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  background:
-    repeating-radial-gradient(
-      circle at 30% 30%,
-      rgba(255,255,255,0.06),
-      rgba(255,255,255,0.06) 2px,
-      transparent 6px,
-      transparent 14px
-    );
-  animation: rotate 120s linear infinite;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px);
-  background-size: 40px 40px, 80px 80px;
-  opacity: 0.35;
-}
-
-.vignette {
-  position: fixed;
-  inset: 0;
-  box-shadow: inset 0 0 300px rgba(0,0,0,0.55);
-  z-index: -1;
-}
-  
-h1 {
-  font-size: 3.2em;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.2em;
-  margin-bottom: 50px;
-  opacity: 0.95;
 }
 
 .playlist {
@@ -93,27 +36,12 @@ p {
   padding: 20px;
   backdrop-filter: blur(18px);
   box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-  transition: transform 0.3s ease;
-}
-
-.song:hover {
-  transform: translateY(-10px);
 }
 
 .cover {
   width: 100%;
   border-radius: 20px;
   margin-bottom: 15px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
-}
-
-.song h2 {
-  margin: 8px 0 4px;
-  font-size: 1.5em;
-}
-
-.song span {
-  opacity: 0.9;
 }
 
 .controls { margin-top: 18px; }
@@ -127,18 +55,34 @@ p {
   font-size: 22px;
   color: white;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 
-.timeline { margin-top: 15px; }
+.timeline {
+  margin-top: 15px;
+}
 
 .timeline input {
   width: 100%;
+  appearance: none;
+  height: 6px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff4f8b 0%, #ffd1dc 0%);
 }
 
-footer {
-  margin-top: 70px;
-  opacity: 0.9;
+.timeline input::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  margin-top: 6px;
 }
 
 @media (max-width: 700px) {
@@ -149,9 +93,6 @@ footer {
 
 <body>
 
-<div class="bg"></div>
-<div class="vignette"></div>
-
 <h1>❤️ Songs That Remind Me of You ❤️</h1>
 
 <div class="playlist">
@@ -161,10 +102,15 @@ footer {
     <h2>Die With A Smile</h2>
     <span>Bruno Mars, Lady Gaga</span>
     <audio src="song2.mp3"></audio>
+
     <div class="controls">
       <button class="play-btn">▶</button>
       <div class="timeline">
         <input type="range" value="0">
+        <div class="time">
+          <span class="current">0:00</span>
+          <span class="duration">0:00</span>
+        </div>
       </div>
     </div>
   </div>
@@ -174,60 +120,78 @@ footer {
     <h2>Khwaab Ho Tum Ya Koi Haqiqat</h2>
     <span>Kishore Kumar</span>
     <audio src="Khwab Ho Tum Ya Koi Haqeeqat.mp3"></audio>
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <div class="timeline">
-        <input type="range" value="0">
-      </div>
-    </div>
-  </div>
 
-  <div class="song">
-    <img class="cover" src="anand.jpg">
-    <h2>Maine Tere Liye</h2>
-    <span>Mukesh</span>
-    <audio src="song4.mp3"></audio>
     <div class="controls">
       <button class="play-btn">▶</button>
       <div class="timeline">
         <input type="range" value="0">
-      </div>
-    </div>
-  </div>
-
-  <div class="song">
-    <img class="cover" src="chaand.jpg">
-    <h2>Chaand Si Mehbooba Ho Meri</h2>
-    <span>Mukesh</span>
-    <audio src="song3.mp3"></audio>
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <div class="timeline">
-        <input type="range" value="0">
+        <div class="time">
+          <span class="current">0:00</span>
+          <span class="duration">0:00</span>
+        </div>
       </div>
     </div>
   </div>
 
 </div>
 
-<footer>Your voice is my favorite sound 💘</footer>
+<footer style="margin-top:70px;">Your voice is my favorite sound 💘</footer>
 
 <script>
 const players = document.querySelectorAll('.song');
 
 players.forEach(player => {
   const audio = player.querySelector('audio');
-  const btn = player.querySelector('.play-btn');
+  const playBtn = player.querySelector('.play-btn');
+  const range = player.querySelector('input[type="range"]');
+  const current = player.querySelector('.current');
+  const duration = player.querySelector('.duration');
 
-  btn.onclick = () => {
+  playBtn.addEventListener('click', () => {
     players.forEach(p => {
-      if (p !== player) p.querySelector('audio').pause();
+      if (p !== player) {
+        p.querySelector('audio').pause();
+        p.querySelector('.play-btn').textContent = '▶';
+      }
     });
-    audio.paused ? audio.play() : audio.pause();
-  };
+
+    if (audio.paused) {
+      audio.play();
+      playBtn.textContent = '❚❚';
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶';
+    }
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    range.max = audio.duration;
+    duration.textContent = format(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    range.value = audio.currentTime;
+    current.textContent = format(audio.currentTime);
+    const percent = (audio.currentTime / audio.duration) * 100 || 0;
+    range.style.background =
+      `linear-gradient(to right, #ff4f8b ${percent}%, #ffd1dc ${percent}%)`;
+  });
+
+  range.addEventListener('input', () => {
+    audio.currentTime = range.value;
+  });
+
+  audio.addEventListener('ended', () => {
+    playBtn.textContent = '▶';
+  });
 });
+
+function format(time) {
+  const m = Math.floor(time / 60);
+  const s = Math.floor(time % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
 </script>
 
 </body>
 </html>
-
